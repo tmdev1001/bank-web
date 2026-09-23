@@ -1,0 +1,171 @@
+/*
+ * The device is a CONTAINER: everything inside is sized in em against a
+ * container-relative root, so the whole UI scales with the frame. With fixed
+ * px the screen clipped its own content ("$42,680.00" losing its first
+ * characters) as soon as the column narrowed.
+ */
+.phone {
+  container-type: inline-size;
+  width: min(100%, 320px);
+  aspect-ratio: 300 / 560;
+  padding: 9px;
+  background: #0a0a0a;
+  border-radius: 38px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* 10px at the 320px design width, scaling down with the frame. */
+  font-size: clamp(7px, 3.125cqw, 10px);
+  padding: 1.1em 1.3em 1em;
+  background: var(--bg);
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.9em;
+  color: var(--muted);
+}
+
+.statusDots {
+  width: 3em;
+  height: 0.6em;
+  background: repeating-linear-gradient(90deg, var(--muted) 0 3px, transparent 3px 6px);
+  opacity: 0.55;
+}
+
+.appBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.9em;
+}
+
+.appTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.appBadge {
+  padding: 0.1em 0.4em;
+  border-radius: 3px;
+  background: var(--black);
+  color: #fff;
+  font-size: 0.7em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.bell {
+  width: 1.1em;
+  height: 1.1em;
+  border: 1px solid var(--muted);
+  border-radius: 3px 3px 5px 5px;
+}
+
+.label {
+  margin-top: 1em;
+  font-size: 0.75em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.total {
+  margin-top: 0.2em;
+  font-size: 2em;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  font-variant-numeric: tabular-nums;
+}
+
+.card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.9em;
+  padding: 0.7em 0.8em 0.3em;
+  border: 1px solid var(--border);
+  border-radius: 0.8em;
+}
+
+.reference {
+  font-size: 1.3em;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.sub {
+  font-size: 0.75em;
+  color: var(--muted);
+}
+
+.spark {
+  width: 100%;
+  flex: 1;
+  min-height: 2.8em;
+  margin-top: 0.3em;
+  color: var(--text);
+}
+
+.rows {
+  margin: 0.9em 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.95em;
+}
+
+.row dt {
+  color: var(--muted);
+}
+
+.row dd {
+  margin: 0;
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.3em;
+  margin-top: 1em;
+}
+
+.action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3em;
+  font-size: 0.65em;
+  color: var(--muted);
+}
+
+.actionDot {
+  width: 2.2em;
+  height: 2.2em;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+}
+
+@media (max-width: 767px) {
+  .phone {
+    width: min(100%, 270px);
+    margin-inline: auto;
+  }
+}

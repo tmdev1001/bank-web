@@ -1,0 +1,184 @@
+/* --- Loop ---------------------------------------------------------------- */
+
+.loop {
+  display: grid;
+  /* minmax(0, 1fr) rather than 1fr: a plain 1fr track will not shrink below
+     its content, so three nowrap stage names overflowed the half-width card
+     they sit in on the Invest page. */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .loop {
+    overflow: visible;
+  }
+}
+
+.stage {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.stageIndex {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.stageName {
+  font-size: 13px;
+  font-weight: 500;
+  min-width: 0;
+}
+
+/* The rail is the only place a stage must stay on one line. */
+.loop[data-compact='false'] .stageName,
+.loop .stage {
+  min-width: 0;
+}
+
+@media (max-width: 767px) {
+  .loop {
+    display: flex;
+    gap: 8px;
+    padding-bottom: 8px;
+  }
+
+  .stage {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+}
+
+/* --- Status rows ---------------------------------------------------------- */
+
+.statusRows {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+}
+
+.statusRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.statusRow dt {
+  color: var(--muted);
+}
+
+.statusRow dd {
+  margin: 0;
+  font-weight: 500;
+  text-align: right;
+}
+
+/* --- Table ---------------------------------------------------------------- */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table th,
+.table td {
+  padding: 9px 0;
+  text-align: right;
+  border-bottom: 1px solid var(--border);
+}
+
+.table thead th {
+  font-size: var(--font-label);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.table th:first-child,
+.table thead th:first-child {
+  text-align: left;
+}
+
+.table tbody th {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+}
+
+.symbol {
+  font-weight: 600;
+}
+
+.symbolName {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+/* --- Decisions ------------------------------------------------------------ */
+
+.decisions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.decision {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.decisionAction {
+  flex: 0 0 auto;
+  min-width: 74px;
+  padding: 3px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.decisionAction[data-action='BUY'] {
+  background: var(--black);
+  border-color: var(--black);
+  color: #fff;
+}
+
+.decisionAction[data-action='SELL'] {
+  border-color: var(--text);
+}
+
+.decisionBody {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.decisionSymbol {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.decisionReason {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.4;
+}

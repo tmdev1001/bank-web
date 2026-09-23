@@ -1,0 +1,25 @@
+{
+  "name": "bank-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "audit": "node .audit/check.mjs",
+    "audit:cycle": "bash .audit/cycle.sh && node .audit/check.mjs",
+    "audit:all": "bash .audit/all.sh"
+  },
+  "dependencies": {
+    "next": "16.3.5",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "puppeteer-core": "^25.11.0",
+    "typescript": "^5"
+  }
+}

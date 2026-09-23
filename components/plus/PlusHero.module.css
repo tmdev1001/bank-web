@@ -1,0 +1,116 @@
+.hero {
+  padding-block: clamp(28px, 4vw, 64px) clamp(32px, 4vw, 56px);
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  align-items: center;
+  gap: clamp(24px, 4vw, 56px);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.title {
+  font-size: clamp(42px, 5vw, 72px);
+  font-weight: 700;
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+}
+
+.lede {
+  max-width: 48ch;
+  margin-top: clamp(16px, 1.8vw, 24px);
+  color: var(--muted);
+  font-size: clamp(15px, 1.05vw, 17px);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: clamp(22px, 2.6vw, 32px);
+}
+
+.visual {
+  display: flex;
+  justify-content: center;
+}
+
+/* --- Value propositions --------------------------------------------------- */
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 2vw, 32px);
+  margin-top: clamp(32px, 4vw, 56px);
+  padding-top: clamp(24px, 3vw, 36px);
+  border-top: 1px solid var(--border);
+}
+
+.benefit {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.benefitLabel {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.benefitCopy {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+@media (max-width: 1023px) {
+  .split {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .benefits {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 24px;
+  }
+}
+
+/* Mobile: headline, copy, CTAs, phone, then the value props. */
+@media (max-width: 767px) {
+  .split {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .title {
+    font-size: clamp(42px, 10vw, 72px);
+  }
+
+  .lede {
+    max-width: none;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .actions > * {
+    flex: 1 1 0;
+    min-width: 150px;
+  }
+}

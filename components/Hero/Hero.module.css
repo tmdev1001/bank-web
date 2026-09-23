@@ -1,0 +1,111 @@
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(24px, 4vw, 64px);
+  padding-block: clamp(32px, 5vw, 72px) var(--section-gap);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.headline {
+  font-size: var(--font-hero);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.lede {
+  max-width: 46ch;
+  margin-top: clamp(20px, 2vw, 28px);
+  color: var(--secondary);
+  font-size: var(--font-body);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: clamp(24px, 3vw, 36px);
+}
+
+.security {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: clamp(20px, 2.5vw, 30px);
+  color: var(--secondary);
+  /* Held at 13px minimum — the spec forbids body copy below ~13px. */
+  font-size: clamp(13px, 0.95vw, 14px);
+}
+
+.visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 1.6vw, 22px);
+}
+
+.photo {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* The phone overlaps the photograph so the product sits IN the scene. */
+.visual > :last-child {
+  flex: 0 0 auto;
+  width: min(52%, 280px);
+  margin-left: clamp(-48px, -3vw, -20px);
+}
+
+/* Tablet: roughly 55/45, phone slightly reduced. */
+@media (max-width: 1023px) {
+  .hero {
+    grid-template-columns: 55fr 45fr;
+    padding-block: 24px var(--section-gap);
+  }
+}
+
+/*
+ * Mobile: one column. The phone follows the security line because source
+ * order already matches the order the spec asks for, so no grid reordering
+ * is needed — and reordering would have divorced tab order from visual order.
+ */
+@media (max-width: 767px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .headline {
+    font-size: clamp(38px, 11vw, 56px);
+  }
+
+  .lede {
+    max-width: none;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .actions > * {
+    flex: 1 1 0;
+    min-width: 140px;
+  }
+
+  /* Stack below 768px: the overlap reads as a mistake in a narrow column. */
+  .visual {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .visual > :last-child {
+    width: min(100%, 260px);
+    margin-left: 0;
+  }
+}

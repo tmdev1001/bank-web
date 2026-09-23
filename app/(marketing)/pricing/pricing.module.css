@@ -1,0 +1,191 @@
+.hero {
+  padding-block: clamp(32px, 4.5vw, 66px) clamp(20px, 2.6vw, 32px);
+  text-align: center;
+}
+
+.headline {
+  font-size: var(--font-hero);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.copy {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: var(--font-body-lg);
+}
+
+.plansSection {
+  padding-bottom: var(--section-gap);
+}
+
+.toggle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: clamp(20px, 2.6vw, 34px);
+}
+
+.plans {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 1.6vw, 22px);
+  align-items: start;
+}
+
+.plan {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(20px, 2.2vw, 28px);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+/* The featured plan is marked by a heavier border AND a "Most popular" badge —
+   never by colour alone. */
+.plan[data-featured='true'] {
+  border-color: var(--black);
+  border-width: 2px;
+}
+
+.planHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.planName {
+  font-size: var(--font-h3);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.planPrice {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-top: 14px;
+  font-size: clamp(30px, 3vw, 42px);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.planPeriod {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.planNote {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.planTagline {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-block: 20px;
+  font-size: 14px;
+}
+
+.features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+}
+
+.tick {
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.planCta {
+  margin-top: auto;
+  width: 100%;
+}
+
+.notice {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+/* --- FAQ ------------------------------------------------------------------ */
+
+.faqSection {
+  padding-bottom: var(--section-gap);
+}
+
+.faqHeading {
+  font-size: var(--font-h3);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+}
+
+.faqs {
+  border-top: 1px solid var(--border);
+}
+
+.faq {
+  border-bottom: 1px solid var(--border);
+}
+
+.faqQuestion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 56px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faqQuestion::-webkit-details-marker {
+  display: none;
+}
+
+.faqQuestion::after {
+  content: '+';
+  font-size: 19px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.faq[open] .faqQuestion::after {
+  content: '\2212';
+}
+
+.faqAnswer {
+  padding-bottom: 18px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 70ch;
+}
+
+@media (max-width: 1023px) {
+  .plans {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .headline {
+    font-size: clamp(40px, 10vw, 52px);
+  }
+}

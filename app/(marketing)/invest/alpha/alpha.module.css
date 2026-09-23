@@ -1,0 +1,191 @@
+.hero {
+  display: grid;
+  grid-template-columns: 42fr 58fr;
+  gap: clamp(24px, 3.5vw, 52px);
+  align-items: center;
+  padding-block: clamp(26px, 3.5vw, 52px) clamp(24px, 3vw, 40px);
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.crumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Breadcrumbs are navigation, not prose, so they take the full 44px target
+   rather than the WCAG inline exception. */
+.crumb a,
+.crumb span {
+  display: inline-flex;
+  align-items: center;
+  /* Both axes: "Invest" is only ~35px wide at 13px, so the target needs
+     padding as well as height. The negative margin keeps it optically flush
+     with the headline below. */
+  min-height: 44px;
+  min-width: 44px;
+  padding-inline: 5px;
+  margin-inline: -5px;
+}
+
+.crumb a:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+.headline {
+  font-size: var(--font-hero);
+  font-weight: 700;
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+}
+
+.expansion {
+  margin-top: 10px;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+
+.copy {
+  max-width: 44ch;
+  margin-top: 16px;
+  font-size: var(--font-body-lg);
+}
+
+.boundary {
+  max-width: 44ch;
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.photo {
+  width: 100%;
+  margin-top: 26px;
+}
+
+.heroPanel {
+  padding: clamp(16px, 2vw, 26px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.heroMetrics {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.provenance {
+  margin-top: 12px;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+/* --- Loop ----------------------------------------------------------------- */
+
+.loopSection {
+  padding-block: clamp(24px, 3vw, 44px);
+  border-top: 1px solid var(--border);
+}
+
+.sectionHeading {
+  font-size: var(--font-h3);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 18px;
+}
+
+.loopNote {
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* --- Dashboard grid ------------------------------------------------------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 1.4vw, 20px);
+  align-items: start;
+  padding-bottom: var(--section-gap);
+}
+
+.histRows {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+}
+
+.histRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.histRow dt {
+  color: var(--muted);
+}
+
+.histRow dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+@media (max-width: 1023px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .headline {
+    font-size: clamp(40px, 10vw, 52px);
+  }
+
+  .copy,
+  .boundary {
+    max-width: none;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .actions > * {
+    flex: 1 1 0;
+    min-width: 145px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

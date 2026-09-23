@@ -1,0 +1,541 @@
+/*
+ * Ventures.
+ *
+ * The one page with no product to render, so it is built from the shared
+ * primitives only: type scale, thin borders, photography and space. Nothing
+ * here introduces a new colour, shadow or radius.
+ */
+
+/* --- Hero ----------------------------------------------------------------- */
+
+.hero {
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  align-items: center;
+  gap: clamp(24px, 4vw, 56px);
+  padding-block: clamp(28px, 4vw, 60px) clamp(24px, 3vw, 40px);
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.headline {
+  margin-top: 14px;
+  font-size: var(--font-hero);
+  font-weight: 700;
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+}
+
+.copy {
+  max-width: 46ch;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: var(--font-body-lg);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.heroVisual {
+  display: flex;
+  justify-content: center;
+}
+
+/* --- Shared section furniture --------------------------------------------- */
+
+.sectionHeading {
+  margin-top: 12px;
+  font-size: var(--font-h2);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+}
+
+.sectionCopy {
+  max-width: 54ch;
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: var(--font-body-lg);
+}
+
+/* --- Investment thesis ---------------------------------------------------- */
+
+.thesis {
+  padding-block: var(--section-gap);
+}
+
+.thesisIntro {
+  max-width: 62ch;
+  margin-bottom: clamp(24px, 3vw, 40px);
+}
+
+.focusGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: clamp(12px, 1.4vw, 20px);
+}
+
+/*
+ * Five cards over two rows: three, then two of equal width. Five items in a
+ * three-column grid leave a hole in the second row, and a hole in a grid of
+ * cards reads as a card that failed to load rather than as whitespace.
+ */
+.focusGrid > * {
+  grid-column: span 2;
+}
+
+.focusGrid > *:nth-child(n + 4) {
+  grid-column: span 3;
+}
+
+.focusLabel {
+  margin-top: 16px;
+  font-size: var(--font-h3);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.focusDetail {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* --- What we provide ------------------------------------------------------ */
+
+.provide {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 2.4vw, 36px);
+  align-items: center;
+  padding-bottom: clamp(24px, 3vw, 40px);
+}
+
+.provideCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.providePanel {
+  display: flex;
+  align-items: flex-end;
+  min-height: clamp(180px, 22vw, 260px);
+  padding: clamp(18px, 2.4vw, 30px);
+  background: var(--black);
+  color: #fff;
+  border-radius: var(--radius-lg);
+}
+
+.provideQuote {
+  max-width: 30ch;
+  font-size: clamp(19px, 1.9vw, 26px);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+/* The six things Bank can bring, as a single bordered band — the same
+   treatment the Company page gives its values row. */
+
+.support {
+  padding-block: clamp(18px, 2.4vw, 30px);
+  border-block: 1px solid var(--border);
+}
+
+.supportList {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+@media (min-width: 768px) {
+  .supportList {
+    overflow: visible;
+  }
+}
+
+.supportItem {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-inline: clamp(10px, 1.4vw, 20px);
+}
+
+.supportItem + .supportItem {
+  border-left: 1px solid var(--border);
+}
+
+/* The first label sits against the container edge, so the band starts on the
+   same line as the headings above it rather than a pad-width inside them. */
+.supportItem:first-child {
+  padding-left: 0;
+}
+
+.supportLabel {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+/* --- Portfolio ------------------------------------------------------------ */
+
+.portfolio {
+  padding-block: var(--section-gap);
+}
+
+.portfolioIntro {
+  margin-bottom: clamp(20px, 2.6vw, 34px);
+}
+
+.portfolioGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 1.4vw, 20px);
+}
+
+.portfolioMark {
+  display: flex;
+  align-items: center;
+  height: 34px;
+}
+
+.portfolioLogo {
+  width: auto;
+  height: 26px;
+  object-fit: contain;
+}
+
+/* Stands in for a wordmark that has not been supplied yet. Decorative only —
+   the company name is right below it in text. */
+.portfolioLetter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.portfolioCompany {
+  margin-top: 16px;
+  font-size: var(--font-h3);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.portfolioCategory {
+  margin-top: 4px;
+  font-size: var(--font-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.portfolioDetail {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.portfolioLink {
+  margin-top: 6px;
+}
+
+.portfolioEmpty {
+  padding: clamp(28px, 4vw, 56px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.portfolioEmptyTitle {
+  font-size: var(--font-h3);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.portfolioEmptyCopy {
+  max-width: 48ch;
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* --- Founder CTA ---------------------------------------------------------- */
+
+.pitch {
+  display: grid;
+  grid-template-columns: 42fr 58fr;
+  gap: clamp(24px, 4vw, 64px);
+  align-items: start;
+  padding-bottom: var(--section-gap);
+}
+
+.pitchIntro {
+  max-width: 40ch;
+}
+
+/* --- Pitch form ----------------------------------------------------------- */
+/*
+ * Same rules as the auth form: text errors, a live-region summary, and colour
+ * only ever as a second cue.
+ */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.status:empty {
+  display: none;
+}
+
+.status {
+  width: 100%;
+}
+
+.summary {
+  padding: 10px 12px;
+  border: 1px solid var(--negative);
+  border-radius: var(--radius-sm);
+  color: var(--negative);
+  font-size: 14px;
+}
+
+.success {
+  padding: 10px 12px;
+  border: 1px solid var(--positive);
+  border-radius: var(--radius-sm);
+  color: var(--positive);
+  font-size: 14px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.fieldWide {
+  grid-column: 1 / -1;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.optional {
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.input {
+  min-height: 48px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  font: inherit;
+  font-size: 15px;
+  color: var(--text);
+  transition: border-color var(--transition);
+}
+
+.input:focus {
+  outline: 2px solid var(--black);
+  outline-offset: 2px;
+  border-color: var(--text);
+}
+
+/* Secondary cue only; the message below carries the meaning. */
+.input[aria-invalid='true'] {
+  border-color: var(--negative);
+}
+
+.textarea {
+  min-height: 112px;
+  padding: 12px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.file {
+  min-height: 48px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  font: inherit;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.file:focus {
+  outline: 2px solid var(--black);
+  outline-offset: 2px;
+}
+
+.hint {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.error {
+  font-size: 13px;
+  color: var(--negative);
+}
+
+/* --- Closing -------------------------------------------------------------- */
+
+.closingWrap {
+  padding-bottom: var(--section-gap);
+}
+
+.closing {
+  padding: clamp(28px, 4vw, 56px);
+  background: var(--black);
+  color: #fff;
+  border-radius: var(--radius-lg);
+}
+
+.closingHeading {
+  max-width: 16ch;
+  font-size: var(--font-h2);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.closingBrand {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: clamp(28px, 4vw, 48px);
+  padding-top: clamp(20px, 2.4vw, 30px);
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.closingTag {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: var(--wordmark-tracking);
+  text-transform: uppercase;
+  color: #b0b0b0;
+}
+
+.closingLine {
+  margin-top: 8px;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #b0b0b0;
+}
+
+/* --- Responsive ----------------------------------------------------------- */
+
+@media (max-width: 1023px) {
+  .hero,
+  .provide,
+  .pitch {
+    grid-template-columns: 1fr;
+  }
+
+  .focusGrid,
+  .portfolioGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .focusGrid > *,
+  .focusGrid > *:nth-child(n + 4) {
+    grid-column: auto;
+  }
+
+  .supportList {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 22px;
+  }
+
+  /* With three per row the divider has to restart on each row, or the first
+     item of row two inherits a rule that leads nowhere. */
+  .supportItem:nth-child(3n + 1) {
+    border-left: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .headline {
+    font-size: clamp(40px, 10vw, 52px);
+  }
+
+  .copy,
+  .sectionCopy {
+    max-width: none;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .actions > * {
+    flex: 1 1 0;
+    min-width: 145px;
+  }
+
+  .focusGrid,
+  .portfolioGrid,
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Below 768px the band becomes a snap rail rather than shrinking six
+     labels past legibility. */
+  .supportList {
+    display: flex;
+    row-gap: 0;
+  }
+
+  .supportItem {
+    flex: 0 0 auto;
+    width: 46vw;
+    max-width: 190px;
+  }
+
+  .supportItem:nth-child(3n + 1) {
+    border-left: 1px solid var(--border);
+  }
+
+  .supportItem:first-child {
+    border-left: 0;
+  }
+
+  .closingHeading {
+    max-width: none;
+  }
+}

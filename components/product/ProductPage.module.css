@@ -1,0 +1,236 @@
+.hero {
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  align-items: center;
+  gap: clamp(24px, 4vw, 56px);
+  padding-block: clamp(28px, 4vw, 60px) clamp(28px, 3.5vw, 48px);
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.headline {
+  font-size: var(--font-hero);
+  font-weight: 700;
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+}
+
+.copy {
+  max-width: 46ch;
+  margin-top: clamp(16px, 1.8vw, 24px);
+  color: var(--muted);
+  font-size: var(--font-body-lg);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: clamp(20px, 2.4vw, 30px);
+}
+
+.heroVisual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 1.6vw, 22px);
+}
+
+/* With a photograph present the phone overlaps it slightly, so the product
+   render reads as sitting IN the scene rather than beside it. */
+.heroVisual[data-media='true'] .heroPhoto {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.heroVisual[data-media='true'] > :last-child {
+  flex: 0 0 auto;
+  width: min(52%, 280px);
+  margin-left: clamp(-48px, -3vw, -20px);
+}
+
+/* --- Function row --------------------------------------------------------- */
+
+.functions {
+  padding-block: clamp(20px, 2.4vw, 30px);
+  border-block: 1px solid var(--border);
+}
+
+.functionList {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+}
+
+@media (min-width: 768px) {
+  .functionList {
+    overflow: visible;
+  }
+}
+
+.function {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding-inline: clamp(8px, 1.4vw, 20px);
+  text-align: center;
+}
+
+.function + .function {
+  border-left: 1px solid var(--border);
+}
+
+.functionLabel {
+  font-size: var(--font-label);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* --- Modules -------------------------------------------------------------- */
+
+.modules {
+  padding-block: var(--section-gap) 0;
+}
+
+.modulesHeading {
+  font-size: var(--font-h2);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  margin-bottom: clamp(20px, 2.4vw, 32px);
+}
+
+.grid {
+  display: grid;
+  gap: clamp(12px, 1.4vw, 20px);
+  align-items: start;
+}
+
+.grid[data-columns='2'] {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid[data-columns='3'] {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid[data-columns='4'] {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* --- CTA ------------------------------------------------------------------ */
+
+.ctaWrap {
+  padding-block: var(--section-gap);
+}
+
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: clamp(20px, 2.6vw, 32px);
+  background: var(--black);
+  color: #fff;
+  border-radius: var(--radius-lg);
+}
+
+.ctaHeading {
+  font-size: clamp(19px, 1.8vw, 26px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.ctaCopy {
+  margin-top: 6px;
+  color: #b0b0b0;
+  font-size: 14px;
+}
+
+.ctaButton {
+  background: #fff;
+  color: var(--black);
+  border-color: #fff;
+  white-space: nowrap;
+}
+
+.ctaButton:hover {
+  background: #ededed;
+}
+
+/* --- Responsive ----------------------------------------------------------- */
+
+@media (max-width: 1023px) {
+  .grid[data-columns='3'],
+  .grid[data-columns='4'] {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  /* Stack at mobile: the overlap reads as a mistake once the column is
+     narrow, and the photograph deserves its own full width. */
+  .heroVisual[data-media='true'] {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .heroVisual[data-media='true'] > :last-child {
+    width: min(100%, 270px);
+    margin-left: 0;
+  }
+
+  .headline {
+    font-size: clamp(40px, 10vw, 52px);
+  }
+
+  .copy {
+    max-width: none;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .actions > * {
+    flex: 1 1 0;
+    min-width: 145px;
+  }
+
+  .functionList {
+    display: flex;
+  }
+
+  .function {
+    flex: 0 0 auto;
+    width: 34vw;
+    min-width: 116px;
+  }
+
+  .grid[data-columns='2'],
+  .grid[data-columns='3'],
+  .grid[data-columns='4'] {
+    grid-template-columns: 1fr;
+  }
+
+  .cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ctaButton {
+    width: 100%;
+  }
+}

@@ -1,0 +1,109 @@
+.page {
+  display: flex;
+  justify-content: center;
+  padding-block: clamp(36px, 6vw, 88px);
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  padding: clamp(22px, 3vw, 34px);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.heading {
+  font-size: var(--font-h3);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.sub {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.status:empty {
+  display: none;
+}
+
+.summary {
+  padding: 10px 12px;
+  border: 1px solid var(--negative);
+  border-radius: var(--radius-sm);
+  color: var(--negative);
+  font-size: 14px;
+}
+
+.success {
+  padding: 10px 12px;
+  border: 1px solid var(--positive);
+  border-radius: var(--radius-sm);
+  color: var(--positive);
+  font-size: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.input {
+  min-height: 48px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  font: inherit;
+  font-size: 15px;
+  color: var(--text);
+  transition: border-color var(--transition);
+}
+
+.input:focus {
+  outline: 2px solid var(--black);
+  outline-offset: 2px;
+  border-color: var(--text);
+}
+
+/* The border is a secondary cue; the message below carries the meaning. */
+.input[aria-invalid='true'] {
+  border-color: var(--negative);
+}
+
+.hint {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.error {
+  font-size: 13px;
+  color: var(--negative);
+}
+
+.alt {
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.alt a {
+  color: var(--text);
+  font-weight: 500;
+  text-decoration: underline;
+}

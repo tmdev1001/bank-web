@@ -1,0 +1,199 @@
+.hero {
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  align-items: center;
+  gap: clamp(24px, 4vw, 56px);
+  padding-block: clamp(28px, 4vw, 60px) clamp(24px, 3vw, 40px);
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.headline {
+  font-size: var(--font-hero);
+  font-weight: 700;
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+}
+
+.copy {
+  max-width: 44ch;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: var(--font-body-lg);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.heroVisual {
+  display: flex;
+  justify-content: center;
+}
+
+.tower {
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 3 / 4;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background:
+    repeating-linear-gradient(0deg, var(--surface-2) 0 8px, transparent 8px 26px),
+    repeating-linear-gradient(90deg, var(--surface-2) 0 10px, transparent 10px 32px),
+    var(--surface);
+}
+
+/* --- Values --------------------------------------------------------------- */
+
+.values {
+  padding-block: clamp(20px, 2.6vw, 34px);
+  border-block: 1px solid var(--border);
+}
+
+.valueList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (min-width: 768px) {
+  .valueList {
+    overflow: visible;
+  }
+}
+
+.value {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-inline: clamp(10px, 1.6vw, 22px);
+}
+
+.value + .value {
+  border-left: 1px solid var(--border);
+}
+
+.valueLabel {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.valueDetail {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+/* --- Mission -------------------------------------------------------------- */
+
+.mission {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 2.4vw, 36px);
+  align-items: center;
+  padding-block: var(--section-gap);
+}
+
+.missionCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sectionHeading {
+  font-size: var(--font-h2);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+}
+
+.missionText {
+  margin-block: 14px 24px;
+  font-size: var(--font-body-lg);
+  color: var(--muted);
+  max-width: 42ch;
+}
+
+.missionPanel {
+  display: flex;
+  align-items: flex-end;
+  min-height: clamp(180px, 22vw, 260px);
+  padding: clamp(18px, 2.4vw, 30px);
+  background: var(--black);
+  color: #fff;
+  border-radius: var(--radius-lg);
+}
+
+.missionQuote {
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* --- Sections ------------------------------------------------------------- */
+
+.sections {
+  padding-bottom: var(--section-gap);
+}
+
+.sectionGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 1.4vw, 20px);
+}
+
+.sectionCopy {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+@media (max-width: 1023px) {
+  .hero,
+  .mission {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .headline {
+    font-size: clamp(40px, 10vw, 52px);
+  }
+
+  .copy {
+    max-width: none;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .actions > * {
+    flex: 1 1 0;
+    min-width: 145px;
+  }
+
+  .valueList {
+    display: flex;
+  }
+
+  .value {
+    flex: 0 0 auto;
+    width: 62vw;
+    max-width: 250px;
+  }
+
+  .sectionGrid {
+    grid-template-columns: 1fr;
+  }
+}

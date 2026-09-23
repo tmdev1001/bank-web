@@ -1,0 +1,359 @@
+/*
+ * BANK design system.
+ *
+ * "One BANK design system. Six responsive compositions." Everything below is
+ * shared across all six breakpoints; per-section layout lives in that
+ * section's CSS module. Sizing is fluid (clamp) between breakpoints rather
+ * than scaling the desktop page down.
+ */
+
+:root {
+  /*
+   * SYSTEM-WIDE tokens (complete Bank system spec). This set supersedes the
+   * two earlier page-level sets: the homepage spec and the Bank Plus spec gave
+   * the same names different values, and the system spec's rule is "one
+   * product, one architecture, one design system", so both pages now read from
+   * here rather than carrying scoped overrides.
+   *
+   * Note `--bg` is the page background and `--surface` is a raised panel fill.
+   * On the homepage spec `--surface` meant the background; that page has been
+   * migrated rather than left on a private theme.
+   */
+  --bg: #ffffff;
+  --surface: #f7f7f7;
+  --surface-2: #f2f2f2;
+  --black: #000000;
+  --text: #0a0a0a;
+  --muted: #676767;
+  --border: #e3e3e3;
+  --positive: #148a43;
+  --negative: #c43b32;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --max-width: 1440px;
+
+  /* Type scale, fluid between the documented breakpoints. */
+  --font-hero-xl: clamp(48px, 5.4vw, 84px);
+  --font-hero: clamp(40px, 4.6vw, 72px);
+  --font-h2: clamp(28px, 3vw, 48px);
+  --font-h3: clamp(20px, 1.9vw, 32px);
+  --font-body-lg: clamp(16px, 1.15vw, 18px);
+  --font-body: clamp(15px, 1.05vw, 16px);
+  --font-small: 14px;
+  --font-label: clamp(11px, 0.85vw, 12px);
+
+  --section-gap: clamp(48px, 6vw, 96px);
+  --transition: 180ms ease;
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* Wordmark tracking. One token so the mark and the negative margin that
+     compensates for its trailing space can never drift apart. */
+  --wordmark-tracking: 0.18em;
+
+  /* Retained aliases so existing modules keep compiling during migration. */
+  --page-max: var(--max-width);
+  --secondary: var(--muted);
+  --white: var(--bg);
+  --radius: var(--radius-md);
+  --font-section: var(--font-h2);
+  --font-card: var(--font-h3);
+  --font-data: var(--font-body);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+ * The `hidden` attribute only sets `display: none` at UA-stylesheet
+ * specificity, so ANY author `display` rule silently defeats it. Without this
+ * the mobile menu panel (position:fixed; display:flex) rendered permanently
+ * open and covered the hero. Anything relying on `hidden` needs this.
+ */
+[hidden] {
+  display: none !important;
+}
+
+html {
+  /* The spec forbids requiring browser zoom; never disable user scaling. */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--font-body);
+  line-height: 1.55;
+  /* Guards the 375px acceptance width against accidental horizontal overflow. */
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+figure {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/* --- Layout ------------------------------------------------------------- */
+
+.container {
+  width: min(calc(100% - 64px), var(--max-width));
+  margin-inline: auto;
+}
+
+@media (max-width: 767px) {
+  .container {
+    width: calc(100% - 32px);
+  }
+}
+
+/* The system spec's small-mobile breakpoint is 389px, not 413px. */
+@media (max-width: 389px) {
+  .container {
+    width: calc(100% - 24px);
+  }
+}
+
+/* --- Brand -------------------------------------------------------------- */
+
+/* Anchor wordmarks are the logo link and must clear the 44px touch target;
+   the same class on a <span> (footer brand, card art) is not interactive. */
+a.wordmark {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.wordmark {
+  font-size: clamp(17px, 1.4vw, 21px);
+  font-weight: 500;
+  letter-spacing: var(--wordmark-tracking);
+  text-transform: uppercase;
+  /* The tracking is applied to the right of the last glyph too; pulling it
+     back keeps the mark optically flush with the container edge. */
+  margin-right: calc(-1 * var(--wordmark-tracking));
+  white-space: nowrap;
+}
+
+/* --- Typography helpers -------------------------------------------------- */
+
+.eyebrow {
+  font-size: var(--font-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+.sectionHeading {
+  font-size: var(--font-section);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+/* --- Buttons ------------------------------------------------------------- */
+/*
+ * Every interactive control clears 44x44 on touch, per the spec's minimum
+ * target.
+ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 22px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  font-size: var(--font-data);
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition),
+    transform var(--transition);
+}
+
+.btnPrimary {
+  background: var(--black);
+  color: #fff;
+  border-color: var(--black);
+}
+
+.btnPrimary:hover {
+  background: #1c1c1c;
+}
+
+.btnPrimary:active {
+  transform: translateY(1px);
+}
+
+.btnSecondary {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.btnSecondary:hover {
+  border-color: var(--text);
+}
+
+.btnSecondary:active {
+  transform: translateY(1px);
+}
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  font-size: var(--font-data);
+  font-weight: 500;
+  transition: gap var(--transition);
+}
+
+.textLink:hover {
+  gap: 10px;
+}
+
+/* --- Focus --------------------------------------------------------------- */
+/*
+ * One visible focus treatment everywhere. :focus-visible keeps it off mouse
+ * clicks while guaranteeing keyboard users always see it (WCAG 2.2 AA).
+ */
+
+:where(a, button, input, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* On the black footer and CTA panel a black ring would be invisible. */
+.onDark :where(a, button, [tabindex]):focus-visible {
+  outline-color: #fff;
+}
+
+/* --- Financial values ---------------------------------------------------- */
+/*
+ * Colour is never the only carrier of meaning: each value also renders a sign
+ * and a screen-reader label (see components/Change.tsx). WCAG 2.2 AA, and it
+ * also survives greyscale printing.
+ */
+
+.positive {
+  color: var(--positive);
+}
+
+.negative {
+  color: var(--negative);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* --- Utilities ----------------------------------------------------------- */
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skipLink {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 100;
+  padding: 12px 18px;
+  background: var(--black);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  transition: top var(--transition);
+}
+
+.skipLink:focus {
+  top: 16px;
+}
+
+/*
+ * Horizontal rails (capabilities, currencies, stages on mobile). Scrollbars
+ * are hidden because the rails carry their own visible affordances.
+ */
+.rail {
+  display: flex;
+  /*
+   * ESTABLISHES A CONTAINING BLOCK, and that is not cosmetic. An
+   * absolutely-positioned descendant (every `.visuallyHidden` label) resolves
+   * against its nearest POSITIONED ancestor. With a static rail that is the
+   * viewport, so the rail's overflow never clips it: a hidden label inside a
+   * scrolled card sat ~1300px out and made the whole page scroll sideways at
+   * 375px, while every visible box measured correctly.
+   */
+  position: relative;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.rail::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

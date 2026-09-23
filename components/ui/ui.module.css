@@ -1,0 +1,142 @@
+/* --- Card ---------------------------------------------------------------- */
+
+.card {
+  /* Cards are grid and flex children everywhere. Grid items default to
+     min-width:auto, so a nowrap table inside one (the currency ticker) would
+     widen its track and push the page sideways. */
+  min-width: 0;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.cardInteractive {
+  transition:
+    transform var(--transition),
+    border-color var(--transition);
+}
+
+.cardInteractive:hover {
+  transform: translateY(-2px);
+  border-color: var(--text);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.cardTitle {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 767px) {
+  .card {
+    padding: 18px;
+  }
+}
+
+/* --- Metric -------------------------------------------------------------- */
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.metricLabel {
+  font-size: var(--font-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.metricValue {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  font-size: clamp(22px, 2vw, 30px);
+}
+
+.metric[data-size='lg'] .metricValue {
+  font-size: clamp(30px, 3.4vw, 48px);
+}
+
+.metric[data-size='sm'] .metricValue {
+  font-size: clamp(17px, 1.5vw, 22px);
+}
+
+.metricChange {
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+/* --- Badge --------------------------------------------------------------- */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.badge[data-tone='positive'] {
+  border-color: var(--positive);
+  color: var(--positive);
+}
+
+.badge[data-tone='negative'] {
+  border-color: var(--negative);
+  color: var(--negative);
+}
+
+.badge[data-tone='dark'] {
+  background: var(--black);
+  border-color: var(--black);
+  color: #fff;
+}
+
+/* --- Tabs ---------------------------------------------------------------- */
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 14px;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  transition:
+    background-color var(--transition),
+    color var(--transition);
+}
+
+.tab:hover {
+  color: var(--text);
+}
+
+.tab[data-active='true'] {
+  background: var(--black);
+  color: #fff;
+}

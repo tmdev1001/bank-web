@@ -1,0 +1,196 @@
+.phone {
+  width: min(100%, 330px);
+  /* Reserved before paint — keeps CLS at zero (spec section 15). */
+  aspect-ratio: 300 / 565;
+  padding: 9px;
+  background: #0a0a0a;
+  border-radius: 38px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 11px 13px 9px;
+  background: var(--white);
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 9px;
+  color: var(--muted);
+}
+
+.statusDots {
+  width: 30px;
+  height: 6px;
+  background: repeating-linear-gradient(90deg, var(--muted) 0 3px, transparent 3px 6px);
+  opacity: 0.55;
+}
+
+.appBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 9px;
+}
+
+.appTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.appBadge {
+  padding: 1px 4px;
+  border-radius: 3px;
+  background: var(--black);
+  color: #fff;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.bell {
+  width: 11px;
+  height: 11px;
+  border: 1px solid var(--muted);
+  border-radius: 3px 3px 5px 5px;
+}
+
+.label {
+  margin-top: 10px;
+  font-size: 7.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.total {
+  margin-top: 2px;
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  font-variant-numeric: tabular-nums;
+}
+
+.delta {
+  font-size: 8.5px;
+  color: var(--positive);
+  font-variant-numeric: tabular-nums;
+}
+
+.card {
+  /* Grows into the height the fixed rows leave over, so the screen fills
+     instead of showing a dead band above the action row. */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: 9px;
+  padding: 7px 8px 3px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.reference {
+  font-size: 14px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.sub {
+  font-size: 7.5px;
+  color: var(--muted);
+}
+
+.spark {
+  width: 100%;
+  flex: 1;
+  min-height: 30px;
+  margin-top: 3px;
+  color: var(--text);
+}
+
+.balances {
+  margin: 9px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.balanceRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 9.5px;
+}
+
+.balanceRow dt {
+  color: var(--muted);
+}
+
+.balanceRow dd {
+  margin: 0;
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 3px;
+  margin-top: 11px;
+}
+
+.action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  font-size: 6.5px;
+  color: var(--muted);
+}
+
+.actionDot {
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  gap: 3px;
+  margin-top: auto;
+  padding-top: 7px;
+  border-top: 1px solid var(--border);
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  font-size: 6px;
+  color: var(--muted);
+}
+
+.tabDot {
+  width: 10px;
+  height: 10px;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+}
+
+@media (max-width: 767px) {
+  .phone {
+    width: min(100%, 280px);
+    margin-inline: auto;
+  }
+}

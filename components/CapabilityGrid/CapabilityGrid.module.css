@@ -1,0 +1,117 @@
+.section {
+  padding-block: clamp(24px, 3vw, 40px);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/*
+ * `.rail` in globals sets display:flex for the mobile case; the grid display
+ * here wins at wider widths because it is declared later in the cascade.
+ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+}
+
+/* `.rail` (globals) sets overflow-x:auto for the mobile case. Cancelling it
+   here must be scoped to the widths that are actually grids — unscoped, it
+   stopped the mobile rail scrolling and pushed the whole document wide. */
+@media (min-width: 768px) {
+  .grid {
+    overflow: visible;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-inline: clamp(12px, 1.6vw, 26px);
+}
+
+/* Thin vertical separators on desktop, between items only. */
+.card + .card {
+  border-left: 1px solid var(--border);
+}
+
+.card:first-child {
+  padding-left: 0;
+}
+
+.card:last-child {
+  padding-right: 0;
+}
+
+.label {
+  font-size: var(--font-label);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.description {
+  color: var(--secondary);
+  font-size: clamp(13px, 0.95vw, 15px);
+  line-height: 1.45;
+}
+
+/* Tablet: 3 x 2. */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 28px;
+  }
+
+  /* Separators follow the 3-up rhythm rather than the source order. */
+  .card + .card {
+    border-left: 1px solid var(--border);
+  }
+
+  .card:nth-child(3n + 1) {
+    border-left: 0;
+    padding-left: 0;
+  }
+
+  .card:nth-child(3n) {
+    padding-right: 0;
+  }
+}
+
+/* Mobile: horizontal snap rail. */
+@media (max-width: 767px) {
+  .grid {
+    display: flex;
+    gap: 0;
+    /* Bleed to the viewport edges so the rail reads as scrollable content
+       rather than a clipped grid, while keeping the first item aligned to
+       the container. */
+    margin-inline: calc(50% - 50vw);
+    padding-inline: max(16px, calc(50vw - 50%));
+    scroll-padding-inline: max(16px, calc(50vw - 50%));
+  }
+
+  .card {
+    flex: 0 0 auto;
+    width: 46vw;
+    min-width: 150px;
+    max-width: 210px;
+    scroll-snap-align: start;
+    padding-inline: 16px;
+  }
+
+  .card:first-child {
+    padding-left: 0;
+  }
+
+  .card:last-child {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 413px) {
+  .card {
+    width: 56vw;
+    min-width: 150px;
+  }
+}

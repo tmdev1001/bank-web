@@ -1,0 +1,21 @@
+.chart {
+  margin-top: 16px;
+}
+
+.insights {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.insightTitle {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.insightDetail {
+  margin-top: 2px;
+  font-size: 13px;
+  color: var(--muted);
+}

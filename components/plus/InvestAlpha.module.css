@@ -1,0 +1,172 @@
+.section {
+  padding-block: clamp(44px, 5.5vw, 84px);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 42fr 58fr;
+  gap: clamp(20px, 3vw, 48px);
+  align-items: start;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* Grid items default to min-width:auto; without this the pipeline rail's
+     min-content widens the track and overflows the page at mobile. */
+  min-width: 0;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.heading {
+  margin-top: 10px;
+  font-size: clamp(30px, 3.2vw, 46px);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+
+.expansion {
+  margin-top: 8px;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+
+.copy {
+  margin-top: 16px;
+  font-size: clamp(15px, 1.15vw, 18px);
+  font-weight: 500;
+}
+
+.boundary {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--muted);
+  max-width: 44ch;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.investLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  width: 100%;
+}
+
+.investLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 13px;
+  color: var(--muted);
+  transition: color var(--transition);
+}
+
+.investLink:hover {
+  color: var(--text);
+}
+
+/* --- Pipeline ------------------------------------------------------------- */
+
+.pipelinePanel {
+  min-width: 0;
+  padding: clamp(16px, 2vw, 26px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.pipelineLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.pipeline {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+@media (min-width: 768px) {
+  .pipeline {
+    overflow: visible;
+  }
+}
+
+.stage {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 12px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.stageIndex {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.stageName {
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.pipelineNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.pipelineNote svg {
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+@media (max-width: 1023px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .pipeline {
+    display: flex;
+    gap: 8px;
+    padding-bottom: 8px;
+  }
+
+  .stage {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+}

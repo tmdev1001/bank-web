@@ -1,0 +1,18 @@
+.frame {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+
+.rounded {
+  border-radius: var(--radius-lg);
+}
+
+.image {
+  object-fit: cover;
+  /* Photography is colour; the system is monochrome. A light desaturation
+     settles the images into the palette without going fully greyscale, which
+     would read as a styling error rather than a choice. */
+  filter: saturate(0.25) contrast(1.02);
+}

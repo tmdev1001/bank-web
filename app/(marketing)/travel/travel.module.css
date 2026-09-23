@@ -1,0 +1,59 @@
+.provenance {
+  margin-top: 14px;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.destinations {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+}
+
+.destination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.destination dd {
+  margin: 0;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.destinationCode {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.controls li {
+  padding-left: 16px;
+  position: relative;
+}
+
+.controls li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text);
+}

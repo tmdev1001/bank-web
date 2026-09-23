@@ -1,0 +1,163 @@
+/*
+ * The device is sized with a container-relative width and a fixed aspect
+ * ratio, so it scales smoothly between breakpoints instead of jumping.
+ */
+.phone {
+  width: min(100%, 380px);
+  aspect-ratio: 300 / 545;
+  padding: 10px;
+  background: #0a0a0a;
+  border-radius: 40px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.14);
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 12px 14px 10px;
+  background: var(--surface);
+  border-radius: 31px;
+  overflow: hidden;
+  /* Type inside the device scales with the device, not the page, so the
+     product UI keeps its proportions at every breakpoint. */
+  font-size: clamp(9px, 1.1cqw, 11px);
+  container-type: inline-size;
+}
+
+.statusBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 9px;
+  color: var(--secondary);
+}
+
+.statusIcons {
+  width: 34px;
+  height: 7px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--secondary) 0 3px,
+    transparent 3px 6px
+  );
+  opacity: 0.6;
+}
+
+.appBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.metaLabel {
+  margin-top: 12px;
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+.total {
+  margin-top: 2px;
+  font-size: clamp(17px, 7cqw, 22px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.delta {
+  margin-top: 1px;
+  font-size: 9px;
+  color: var(--positive);
+  font-variant-numeric: tabular-nums;
+}
+
+.chartCard {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  padding: 8px 9px 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.reference {
+  margin-top: 1px;
+  font-size: clamp(12px, 5cqw, 15px);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.referenceNote {
+  font-size: 8px;
+  color: var(--secondary);
+}
+
+.sparkline {
+  width: 100%;
+  /* Grows into whatever height the device has left, so the screen fills
+     instead of leaving a dead band above the tab bar. */
+  flex: 1;
+  min-height: 34px;
+  margin-top: 4px;
+  color: var(--text);
+}
+
+.balances {
+  margin: 10px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.balanceRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10px;
+}
+
+.balanceRow dt {
+  color: var(--secondary);
+}
+
+.balanceRow dd {
+  margin: 0;
+  font-weight: 500;
+}
+
+.tabBar {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+  margin-top: auto;
+  padding: 8px 2px 2px;
+  border-top: 1px solid var(--border);
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  font-size: 7px;
+  color: var(--secondary);
+}
+
+.tabDot {
+  width: 12px;
+  height: 12px;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+}
+
+/* Mobile: a reduced device below the CTAs rather than a full-height one,
+   so the hero does not consume the whole viewport (spec section 4). */
+@media (max-width: 767px) {
+  .phone {
+    width: min(100%, 260px);
+    margin-inline: auto;
+  }
+}

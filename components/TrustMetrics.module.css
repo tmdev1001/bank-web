@@ -1,0 +1,110 @@
+.section {
+  padding-block: 0 var(--section-gap);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr minmax(280px, 38%);
+  gap: clamp(16px, 2vw, 24px);
+  align-items: stretch;
+}
+
+.metricsPanel {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(20px, 2.4vw, 30px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.heading {
+  font-size: var(--font-data);
+  font-weight: 600;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(12px, 2vw, 24px);
+  margin: clamp(18px, 2vw, 26px) 0 0;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.metricValue {
+  font-size: clamp(24px, 2.6vw, 38px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.metricLabel {
+  margin: 0;
+  color: var(--secondary);
+  /* Floored at the 13px readable minimum rather than the 11-14px label range;
+     these sit directly under large figures and carry their meaning. */
+  font-size: clamp(13px, 0.9vw, 14px);
+}
+
+.qualifier {
+  margin-top: auto;
+  padding-top: 16px;
+  color: var(--secondary);
+  font-size: 13px;
+  font-style: italic;
+}
+
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: clamp(20px, 2.4vw, 30px);
+  background: var(--black);
+  color: #fff;
+  border-radius: var(--radius-md);
+}
+
+.ctaCopy {
+  font-size: var(--font-data);
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.ctaButton {
+  background: #fff;
+  color: var(--black);
+  border-color: #fff;
+}
+
+.ctaButton:hover {
+  background: #ededed;
+}
+
+@media (max-width: 1023px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile: metrics 2 x 2, CTA full width beneath them. */
+@media (max-width: 767px) {
+  .metrics {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 20px;
+  }
+
+  .cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ctaButton {
+    width: 100%;
+  }
+}

@@ -1,0 +1,110 @@
+.section {
+  padding-block: clamp(40px, 5vw, 72px);
+  border-top: 1px solid var(--border);
+}
+
+.heading {
+  font-size: clamp(20px, 1.8vw, 26px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: clamp(20px, 2.4vw, 30px);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr minmax(260px, 30%);
+  gap: clamp(16px, 2vw, 28px);
+  align-items: stretch;
+}
+
+.metricsPanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(12px, 2vw, 24px);
+  margin: 0;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.metricValue {
+  font-size: clamp(26px, 2.8vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.metricLabel {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.qualifier {
+  margin-top: 18px;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.security {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(16px, 2vw, 24px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.securityIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 12px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.securityTitle {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.securityCopy {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.securityLink {
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+@media (max-width: 1023px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile: 2-column metrics, security card full width (spec section 9). */
+@media (max-width: 767px) {
+  .metrics {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 20px;
+  }
+}

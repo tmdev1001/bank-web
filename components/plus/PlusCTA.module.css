@@ -1,0 +1,80 @@
+.section {
+  padding-bottom: clamp(40px, 5vw, 72px);
+}
+
+.panel {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: clamp(20px, 3vw, 44px);
+  padding: clamp(20px, 2.6vw, 34px);
+  background: var(--black);
+  color: #fff;
+  border-radius: var(--radius);
+}
+
+.heading {
+  font-size: clamp(19px, 1.7vw, 25px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px clamp(16px, 2vw, 32px);
+}
+
+.points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.tick {
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.points strong {
+  display: block;
+  font-weight: 600;
+}
+
+.pointDetail {
+  display: block;
+  color: #b0b0b0;
+  font-size: 12px;
+}
+
+.cta {
+  background: #fff;
+  color: var(--black);
+  border-color: #fff;
+  white-space: nowrap;
+}
+
+.cta:hover {
+  background: #ededed;
+}
+
+@media (max-width: 1023px) {
+  .panel {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Mobile: stacked list, full-width button (spec section 10). */
+@media (max-width: 767px) {
+  .points {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cta {
+    width: 100%;
+  }
+}

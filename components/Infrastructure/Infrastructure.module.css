@@ -1,0 +1,118 @@
+.section {
+  padding-block: 0 var(--section-gap);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 27%) 1fr;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(20px, 2.4vw, 32px);
+  /* Grid items default to min-width:auto. Without this the rail's min-content
+     (six stages side by side) widens the track and overflows the page. */
+  min-width: 0;
+}
+
+.copy {
+  margin-top: 14px;
+  color: var(--secondary);
+  font-size: clamp(13px, 0.95vw, 15px);
+}
+
+.link {
+  margin-top: auto;
+}
+
+.stages {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  border-left: 1px solid var(--border);
+  min-width: 0;
+}
+
+/* Scoped for the same reason as the capability grid. */
+@media (min-width: 768px) {
+  .stages {
+    overflow: visible;
+  }
+}
+
+.stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: clamp(18px, 2vw, 28px) clamp(10px, 1.2vw, 18px);
+}
+
+/* Horizontal connector between stages, suggesting flow left to right. */
+.connector {
+  position: absolute;
+  top: clamp(29px, 2.6vw, 40px);
+  left: calc(-50% + 12px);
+  width: calc(100% - 24px);
+  height: 1px;
+  background: var(--border);
+}
+
+.stage:first-child .connector {
+  display: none;
+}
+
+.stageLabel {
+  font-size: var(--font-label);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.stageCopy {
+  color: var(--secondary);
+  font-size: clamp(13px, 0.9vw, 14px);
+  line-height: 1.45;
+}
+
+@media (max-width: 1023px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .stages {
+    grid-template-columns: repeat(3, 1fr);
+    border-left: 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .link {
+    margin-top: 18px;
+  }
+}
+
+/* Mobile: a scrolling process rail — never six descriptions in one row. */
+@media (max-width: 767px) {
+  .stages {
+    display: flex;
+    margin-inline: 0;
+  }
+
+  .stage {
+    flex: 0 0 auto;
+    width: 60vw;
+    max-width: 240px;
+    scroll-snap-align: start;
+  }
+
+  .stage + .stage {
+    border-left: 1px solid var(--border);
+  }
+
+  .connector {
+    display: none;
+  }
+}
