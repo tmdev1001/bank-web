@@ -24,8 +24,8 @@
   --surface-2: #f2f2f2;
   --black: #000000;
   --text: #0a0a0a;
-  --muted: #676767;
-  --border: #e3e3e3;
+  --muted: #666666;
+  --border: #e2e2e2;
   --positive: #148a43;
   --negative: #c43b32;
   --radius-sm: 6px;
@@ -126,9 +126,23 @@ button {
 
 /* --- Layout ------------------------------------------------------------- */
 
+/*
+ * Responsive containers (homepage + shared layout):
+ *   Desktop XL  ≥1440px      → 1440px max
+ *   Laptop      1024–1439px  → calc(100% - 64px)
+ *   Tablet      768–1023px   → calc(100% - 48px)
+ *   Mobile Lg   414–767px    → calc(100% - 32px)
+ *   Mobile Sm   ≤413px       → calc(100% - 24px)
+ */
 .container {
   width: min(calc(100% - 64px), var(--max-width));
   margin-inline: auto;
+}
+
+@media (max-width: 1023px) {
+  .container {
+    width: calc(100% - 48px);
+  }
 }
 
 @media (max-width: 767px) {
@@ -137,8 +151,7 @@ button {
   }
 }
 
-/* The system spec's small-mobile breakpoint is 389px, not 413px. */
-@media (max-width: 389px) {
+@media (max-width: 413px) {
   .container {
     width: calc(100% - 24px);
   }
