@@ -51,6 +51,7 @@ export default async function BusinessPage() {
           primaryCta={{ label: 'Get Started', href: '/signup' }}
           secondaryCta={{ label: 'Talk to Sales', href: '/company' }}
           capital={capital.data}
+          heroBackground="business"
           media={MEDIA.business}
           phoneLabel="Operating capital"
           seed={23}

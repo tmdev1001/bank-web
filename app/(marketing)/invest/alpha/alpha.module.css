@@ -1,3 +1,42 @@
+.heroShell {
+  width: 100%;
+  aspect-ratio: 25 / 12;
+  background-image: url('../../../../.assets/source/alpha.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.heroShell .hero {
+  height: 100%;
+}
+
+.heroShell .headline {
+  color: #ffffff;
+}
+
+.heroShell .copy,
+.heroShell .expansion,
+.heroShell .boundary,
+.heroShell .crumb {
+  color: #e2e2e2;
+}
+
+.heroShell .crumb a:hover {
+  color: #ffffff;
+}
+
+.heroShell .actions .secondaryBtn {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: var(--text);
+}
+
+.heroShell .actions .secondaryBtn:hover:not(:disabled):not([aria-disabled="true"]) {
+  background: #f2f2f2;
+  border-color: #f2f2f2;
+}
+
 .hero {
   display: grid;
   grid-template-columns: 42fr 58fr;
@@ -167,6 +206,17 @@
 }
 
 @media (max-width: 767px) {
+  .heroShell {
+    aspect-ratio: auto;
+    min-height: calc(100vw * 5 / 4);
+    background-size: cover;
+  }
+
+  .heroShell .hero {
+    height: auto;
+    padding-block: 32px 48px;
+  }
+
   .headline {
     font-size: clamp(40px, 10vw, 52px);
   }

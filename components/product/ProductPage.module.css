@@ -1,3 +1,43 @@
+.heroShell {
+  width: 100%;
+  aspect-ratio: 25 / 12;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.heroShell[data-bg='personal'] {
+  background-image: url('../../.assets/source/personal.png');
+}
+
+.heroShell[data-bg='business'] {
+  background-image: url('../../.assets/source/business.png');
+}
+
+.heroShell[data-bg='family'] {
+  background-image: url('../../.assets/source/family.png');
+}
+
+.heroShell[data-bg='travel'] {
+  background-image: url('../../.assets/source/travel.png');
+}
+
+.heroShell[data-bg='invest'] {
+  background-image: url('../../.assets/source/invest_alpha.png');
+}
+
+.heroShell .hero {
+  height: 100%;
+}
+
+.heroShell .headline {
+  color: #ffffff;
+}
+
+.heroShell .copy {
+  color: #e2e2e2;
+}
+
 .hero {
   display: grid;
   grid-template-columns: 55fr 45fr;
@@ -31,6 +71,17 @@
   flex-wrap: wrap;
   gap: 12px;
   margin-top: clamp(20px, 2.4vw, 30px);
+}
+
+.heroShell .actions .secondaryBtn {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: var(--text);
+}
+
+.heroShell .actions .secondaryBtn:hover:not(:disabled):not([aria-disabled="true"]) {
+  background: #f2f2f2;
+  border-color: #f2f2f2;
 }
 
 .heroVisual {
@@ -175,6 +226,17 @@
 }
 
 @media (max-width: 767px) {
+  .heroShell {
+    aspect-ratio: auto;
+    min-height: calc(100vw * 5 / 4); /* 4:5 full-bleed band at minimum */
+    background-size: cover;
+  }
+
+  .heroShell .hero {
+    height: auto;
+    padding-block: 32px 48px;
+  }
+
   .hero {
     grid-template-columns: 1fr;
     gap: 26px;

@@ -1,3 +1,29 @@
+.heroShell {
+  width: 100%;
+  aspect-ratio: 25 / 12;
+  background-image: url('../../../.assets/source/pricing.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.heroShell .hero {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+}
+
+.heroShell .headline {
+  color: #ffffff;
+}
+
+.heroShell .copy {
+  color: #e2e2e2;
+}
+
 .hero {
   padding-block: clamp(32px, 4.5vw, 66px) clamp(20px, 2.6vw, 32px);
   text-align: center;
@@ -185,6 +211,17 @@
 }
 
 @media (max-width: 767px) {
+  .heroShell {
+    aspect-ratio: auto;
+    min-height: calc(100vw * 5 / 4);
+    background-size: cover;
+  }
+
+  .heroShell .hero {
+    height: auto;
+    padding-block: 32px 48px;
+  }
+
   .headline {
     font-size: clamp(40px, 10vw, 52px);
   }

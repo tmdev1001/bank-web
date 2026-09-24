@@ -20,7 +20,7 @@ export function HeroContent() {
         <Link href="/get-started" className="btn btnPrimary">
           Get Started
         </Link>
-        <Link href="/explore" className="btn btnSecondary">
+        <Link href="/explore" className={`btn btnSecondary ${styles.exploreBtn}`}>
           Explore Bank
         </Link>
       </div>

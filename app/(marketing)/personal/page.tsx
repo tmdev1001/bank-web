@@ -37,6 +37,7 @@ export default async function PersonalPage() {
           primaryCta={{ label: 'Get Started', href: '/signup' }}
           secondaryCta={{ label: 'Learn More', href: '/resources' }}
           capital={capital.data}
+          heroBackground="personal"
           media={MEDIA.personal}
           phoneLabel="Total capital"
           seed={11}

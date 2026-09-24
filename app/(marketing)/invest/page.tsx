@@ -49,6 +49,7 @@ export default async function InvestPage() {
           primaryCta={{ label: 'Get Started', href: '/invest/alpha' }}
           secondaryCta={{ label: 'Learn More', href: '/resources' }}
           capital={capital.data}
+          heroBackground="invest"
           media={MEDIA.invest}
           phoneLabel="Portfolio value"
           seed={53}

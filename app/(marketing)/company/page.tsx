@@ -38,7 +38,8 @@ export default function CompanyPage() {
       </a>
       <Header />
       <main id="main">
-        <section className={`container ${styles.hero}`} aria-labelledby="company-heading">
+        <section className={styles.heroShell} aria-labelledby="company-heading">
+          <div className={`container ${styles.hero}`}>
           <div className={styles.heroContent}>
             <h1 id="company-heading" className={styles.headline}>
               A more open
@@ -54,7 +55,7 @@ export default function CompanyPage() {
               <Link href="#story" className="btn btnPrimary">
                 Our Mission
               </Link>
-              <Link href="#careers" className="btn btnSecondary">
+              <Link href="#careers" className={`btn btnSecondary ${styles.secondaryBtn}`}>
                 Careers
               </Link>
             </div>
@@ -70,6 +71,7 @@ export default function CompanyPage() {
               priority
               sizes="(max-width: 1023px) 100vw, 42vw"
             /> */}
+          </div>
           </div>
         </section>
 

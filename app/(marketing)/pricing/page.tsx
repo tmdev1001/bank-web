@@ -18,13 +18,15 @@ export default function PricingPage() {
       </a>
       <Header />
       <main id="main">
-        <section className={`container ${styles.hero}`} aria-labelledby="pricing-heading">
-          <h1 id="pricing-heading" className={styles.headline}>
-            Simple pricing
-            <br />
-            for a global life.
-          </h1>
-          <p className={styles.copy}>Choose the right plan for you.</p>
+        <section className={styles.heroShell} aria-labelledby="pricing-heading">
+          <div className={`container ${styles.hero}`}>
+            <h1 id="pricing-heading" className={styles.headline}>
+              Simple pricing
+              <br />
+              for a global life.
+            </h1>
+            <p className={styles.copy}>Choose the right plan for you.</p>
+          </div>
         </section>
 
         <section className={`container ${styles.plansSection}`} aria-label="Plans">

@@ -2,9 +2,11 @@ import Link from 'next/link';
 import type { CapitalSummary } from '@/lib/domain';
 import { Icon, type IconName } from '@/components/ui/Icon';
 import { ProductPhone } from '@/components/finance/ProductPhone';
-import { HeroMedia } from '@/components/ui/HeroMedia';
 import type { PageMedia } from '@/content/media';
 import styles from './ProductPage.module.css';
+
+/** Full-bleed hero backgrounds from `.assets/source` (same set as the home hero). */
+export type ProductHeroBackground = 'personal' | 'business' | 'family' | 'travel' | 'invest';
 
 export interface ProductFunction {
   icon: IconName;
@@ -28,6 +30,7 @@ export function ProductHero({
   phoneLabel,
   seed,
   media,
+  heroBackground,
 }: {
   headline: React.ReactNode;
   copy: string;
@@ -38,9 +41,11 @@ export function ProductHero({
   seed?: number;
   /** Optional page photograph, shown beside the product render. */
   media?: PageMedia;
+  /** Full-width hero photograph behind the grid (matches home hero behavior). */
+  heroBackground?: ProductHeroBackground;
 }) {
-  return (
-    <section className={`container ${styles.hero}`} aria-labelledby="product-heading">
+  const heroBody = (
+    <>
       <div className={styles.heroContent}>
         <h1 id="product-heading" className={styles.headline}>
           {headline}
@@ -50,24 +55,35 @@ export function ProductHero({
           <Link href={primaryCta.href} className="btn btnPrimary">
             {primaryCta.label}
           </Link>
-          <Link href={secondaryCta.href} className="btn btnSecondary">
+          <Link
+            href={secondaryCta.href}
+            className={`btn btnSecondary${heroBackground ? ` ${styles.secondaryBtn}` : ''}`}
+          >
             {secondaryCta.label}
           </Link>
         </div>
       </div>
       <div className={styles.heroVisual} data-media={Boolean(media)}>
-        {/* {media && (
-          <HeroMedia
-            src={media.src}
-            alt={media.alt}
-            ratio="3 / 4"
-            priority
-            sizes="(max-width: 767px) 100vw, 30vw"
-            className={styles.heroPhoto}
-          />
-        )} */}
         <ProductPhone capital={capital} label={phoneLabel} seed={seed} />
       </div>
+    </>
+  );
+
+  if (heroBackground) {
+    return (
+      <section
+        className={styles.heroShell}
+        data-bg={heroBackground}
+        aria-labelledby="product-heading"
+      >
+        <div className={`container ${styles.hero}`}>{heroBody}</div>
+      </section>
+    );
+  }
+
+  return (
+    <section className={`container ${styles.hero}`} aria-labelledby="product-heading">
+      {heroBody}
     </section>
   );
 }

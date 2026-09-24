@@ -49,6 +49,7 @@ export default async function TravelPage() {
           primaryCta={{ label: 'Get Started', href: '/signup' }}
           secondaryCta={{ label: 'Learn More', href: '/resources' }}
           capital={capital.data}
+          heroBackground="travel"
           media={MEDIA.travel}
           phoneLabel="Travel wallet"
           seed={47}

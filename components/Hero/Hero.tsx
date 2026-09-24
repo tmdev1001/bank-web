@@ -12,7 +12,8 @@ import styles from './Hero.module.css';
  */
 export function Hero() {
   return (
-    <section className={`container ${styles.hero}`} aria-labelledby="hero-heading">
+    <section className={styles.heroShell} aria-labelledby="hero-heading">
+      <div className={`container ${styles.hero}`}>
       <HeroContent />
       <div className={styles.visual}>
         {/* <HeroMedia
@@ -24,6 +25,7 @@ export function Hero() {
           className={styles.photo}
         /> */}
         <BankPhone />
+      </div>
       </div>
     </section>
   );

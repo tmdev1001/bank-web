@@ -44,7 +44,8 @@ export default async function AlphaPage() {
       </a>
       <Header />
       <main id="main">
-        <section className={`container ${styles.hero}`} aria-labelledby="alpha-heading">
+        <section className={styles.heroShell} aria-labelledby="alpha-heading">
+          <div className={`container ${styles.hero}`}>
           <div className={styles.heroContent}>
             <nav aria-label="Breadcrumb" className={styles.crumb}>
               <Link href="/invest">Invest</Link>
@@ -71,18 +72,10 @@ export default async function AlphaPage() {
               <Link href="/signup" className="btn btnPrimary">
                 Launch Alpha
               </Link>
-              <Link href="/resources" className="btn btnSecondary">
+              <Link href="/resources" className={`btn btnSecondary ${styles.secondaryBtn}`}>
                 Learn More
               </Link>
             </div>
-
-            <HeroMedia
-              src={MEDIA.alpha.src}
-              alt={MEDIA.alpha.alt}
-              ratio="16 / 9"
-              sizes="(max-width: 1023px) 100vw, 40vw"
-              className={styles.photo}
-            />
           </div>
 
           <div className={styles.heroPanel}>
@@ -92,13 +85,8 @@ export default async function AlphaPage() {
                 {status.data.mode} trading
               </Badge>
             </div>
-            <MarketChart
-              series={referenceSeries(71, 56, 0.004)}
-              comparison={referenceSeries(97, 56, 0.002)}
-              label="Alpha portfolio value against its benchmark"
-              height="lg"
-            />
             {!capital.isLive && <p className={styles.provenance}>{capital.source}</p>}
+          </div>
           </div>
         </section>
 

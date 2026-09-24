@@ -1,3 +1,24 @@
+.heroShell {
+  width: 100%;
+  aspect-ratio: 25 / 12;
+  background-image: url('../../../.assets/source/resources.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.heroShell .hero {
+  height: 100%;
+}
+
+.heroShell .headline {
+  color: #ffffff;
+}
+
+.heroShell .copy {
+  color: #e2e2e2;
+}
+
 .hero {
   display: grid;
   grid-template-columns: 55fr 45fr;
@@ -160,6 +181,17 @@
 }
 
 @media (max-width: 767px) {
+  .heroShell {
+    aspect-ratio: auto;
+    min-height: calc(100vw * 5 / 4);
+    background-size: cover;
+  }
+
+  .heroShell .hero {
+    height: auto;
+    padding-block: 32px 48px;
+  }
+
   .headline {
     font-size: clamp(40px, 10vw, 52px);
   }

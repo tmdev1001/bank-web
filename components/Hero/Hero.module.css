@@ -1,8 +1,18 @@
+.heroShell {
+  width: 100%;
+  aspect-ratio: 25 / 12;
+  background-image: url('../../.assets/source/bank_home.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: clamp(24px, 4vw, 64px);
+  height: 100%;
   padding-block: clamp(32px, 5vw, 72px) var(--section-gap);
 }
 
@@ -13,6 +23,7 @@
 }
 
 .headline {
+  color: #ffffff;
   font-size: var(--font-hero);
   font-weight: 700;
   line-height: 0.95;
@@ -22,7 +33,7 @@
 .lede {
   max-width: 46ch;
   margin-top: clamp(20px, 2vw, 28px);
-  color: var(--secondary);
+  color: #e2e2e2;
   font-size: var(--font-body);
 }
 
@@ -33,12 +44,23 @@
   margin-top: clamp(24px, 3vw, 36px);
 }
 
+.actions .exploreBtn {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: var(--text);
+}
+
+.actions .exploreBtn:hover:not(:disabled):not([aria-disabled="true"]) {
+  background: #f2f2f2;
+  border-color: #f2f2f2;
+}
+
 .security {
   display: flex;
   align-items: center;
   gap: 8px;
   margin-top: clamp(20px, 2.5vw, 30px);
-  color: var(--secondary);
+  color: #e2e2e2;
   /* Held at 13px minimum — the spec forbids body copy below ~13px. */
   font-size: clamp(13px, 0.95vw, 14px);
 }
@@ -76,9 +98,22 @@
  * is needed — and reordering would have divorced tab order from visual order.
  */
 @media (max-width: 767px) {
+  /*
+   * Desktop 25:12 is too short once the grid stacks. 4:5 matches common
+   * full-bleed mobile heroes; min-height only sets a floor — content can
+   * grow the shell so nothing clips.
+   */
+  .heroShell {
+    aspect-ratio: auto;
+    min-height: calc(100vw * 5 / 4); /* 4:5 full-bleed band at minimum */
+    background-size: cover;
+  }
+
   .hero {
     grid-template-columns: 1fr;
     gap: 32px;
+    height: auto;
+    padding-block: 32px 48px;
   }
 
   .headline {

@@ -46,7 +46,8 @@ export default function ResourcesPage() {
       </a>
       <Header />
       <main id="main">
-        <section className={`container ${styles.hero}`} aria-labelledby="resources-heading">
+        <section className={styles.heroShell} aria-labelledby="resources-heading">
+          <div className={`container ${styles.hero}`}>
           <div className={styles.heroContent}>
             <h1 id="resources-heading" className={styles.headline}>
               Knowledge
@@ -60,13 +61,14 @@ export default function ResourcesPage() {
             </p>
           </div>
           <div className={styles.heroVisual}>
-            <HeroMedia
+            {/* <HeroMedia
               src={MEDIA.resources.src}
               alt={MEDIA.resources.alt}
-              ratio="4 / 3"
-              priority
-              sizes="(max-width: 1023px) 100vw, 42vw"
-            />
+              ratio="16 / 9"
+              sizes="(max-width: 1023px) 100vw, 40vw"
+              className={styles.photo}
+            /> */}
+          </div>
           </div>
         </section>
 

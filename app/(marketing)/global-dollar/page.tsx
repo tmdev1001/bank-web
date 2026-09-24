@@ -49,7 +49,8 @@ export default async function GlobalDollarPage() {
       </a>
       <Header />
       <main id="main">
-        <section className={`container ${styles.hero}`} aria-labelledby="gd-heading">
+        <section className={styles.heroShell} aria-labelledby="gd-heading">
+          <div className={`container ${styles.hero}`}>
           <div className={styles.heroContent}>
             <h1 id="gd-heading" className={styles.headline}>
               One reference.
@@ -64,7 +65,7 @@ export default async function GlobalDollarPage() {
               <Link href="/signup" className="btn btnPrimary">
                 Explore Global Dollar
               </Link>
-              <Link href="/resources" className="btn btnSecondary">
+              <Link href="/resources" className={`btn btnSecondary ${styles.secondaryBtn}`}>
                 Learn More
               </Link>
             </div>
@@ -78,6 +79,7 @@ export default async function GlobalDollarPage() {
               priority
               sizes="(max-width: 1023px) 100vw, 42vw"
             /> */}
+          </div>
           </div>
         </section>
 

@@ -53,6 +53,7 @@ export default async function FamilyPage() {
           primaryCta={{ label: 'Get Started', href: '/signup' }}
           secondaryCta={{ label: 'Learn More', href: '/resources' }}
           capital={capital.data}
+          heroBackground="family"
           media={MEDIA.family}
           phoneLabel="Family capital"
           seed={31}
