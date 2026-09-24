@@ -2,7 +2,7 @@
   width: 100%;
   aspect-ratio: 25 / 12;
   background-image: url('../../../.assets/source/global_dallar.png');
-  background-size: 100% 100%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
