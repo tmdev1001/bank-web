@@ -206,6 +206,7 @@ a.wordmark {
   justify-content: center;
   gap: 8px;
   min-height: 44px;
+  min-width: 44px;
   padding: 0 22px;
   border-radius: var(--radius-sm);
   border: 1px solid transparent;
@@ -216,7 +217,8 @@ a.wordmark {
     background-color var(--transition),
     border-color var(--transition),
     color var(--transition),
-    transform var(--transition);
+    transform var(--transition),
+    opacity var(--transition);
 }
 
 .btnPrimary {
@@ -225,11 +227,11 @@ a.wordmark {
   border-color: var(--black);
 }
 
-.btnPrimary:hover {
+.btnPrimary:hover:not(:disabled):not([aria-disabled="true"]) {
   background: #1c1c1c;
 }
 
-.btnPrimary:active {
+.btnPrimary:active:not(:disabled):not([aria-disabled="true"]) {
   transform: translateY(1px);
 }
 
@@ -239,11 +241,11 @@ a.wordmark {
   border-color: var(--border);
 }
 
-.btnSecondary:hover {
+.btnSecondary:hover:not(:disabled):not([aria-disabled="true"]) {
   border-color: var(--text);
 }
 
-.btnSecondary:active {
+.btnSecondary:active:not(:disabled):not([aria-disabled="true"]) {
   transform: translateY(1px);
 }
 
@@ -252,6 +254,7 @@ a.wordmark {
   opacity: 0.45;
   cursor: not-allowed;
   transform: none;
+  pointer-events: none;
 }
 
 .textLink {
@@ -261,11 +264,17 @@ a.wordmark {
   min-height: 44px;
   font-size: var(--font-data);
   font-weight: 500;
-  transition: gap var(--transition);
+  transition:
+    gap var(--transition),
+    opacity var(--transition);
 }
 
 .textLink:hover {
   gap: 10px;
+}
+
+.textLink:active {
+  opacity: 0.7;
 }
 
 /* --- Focus --------------------------------------------------------------- */

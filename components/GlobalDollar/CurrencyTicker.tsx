@@ -1,5 +1,8 @@
+'use client';
+
 import type { CurrencyRate } from '@/lib/marketData';
 import { Change } from '@/components/ui/Change';
+import { AnimatedValue } from '@/components/ui/AnimatedValue';
 import styles from './GlobalDollar.module.css';
 
 /**
@@ -29,7 +32,7 @@ export function CurrencyTicker({ currencies }: { currencies: CurrencyRate[] }) {
           <tr>
             {currencies.map((currency) => (
               <td key={currency.code} className={`${styles.tickerRate} tabular`}>
-                {currency.rate.toFixed(2)}
+                <AnimatedValue value={currency.rate.toFixed(2)} />
               </td>
             ))}
           </tr>

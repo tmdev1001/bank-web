@@ -1,3 +1,6 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import type { RangeKey } from '@/lib/marketData';
 import styles from './GlobalDollar.module.css';
 
@@ -38,9 +41,41 @@ interface ChartProps {
  * Accessibility (spec section 14): the drawing is exposed as a single labelled
  * image with a plain-language summary, and the same figures are also available
  * as a real data table for anyone who needs the values rather than the shape.
- * A bare <svg> would be silent to a screen reader.
+ * Range changes crossfade the path over --transition (~180ms); reduced-motion
+ * users get an instant swap via the global prefers-reduced-motion rule.
  */
 export function GlobalDollarChart({ series, range, isLive }: ChartProps) {
+  const nextPath = toPath(series);
+  const [path, setPath] = useState(nextPath);
+  const [fading, setFading] = useState(false);
+
+  useEffect(() => {
+    if (nextPath === path) return undefined;
+
+    let cancelled = false;
+    const reduced =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduced) {
+      setPath(nextPath);
+      setFading(false);
+      return undefined;
+    }
+
+    setFading(true);
+    const swap = window.setTimeout(() => {
+      if (cancelled) return;
+      setPath(nextPath);
+      setFading(false);
+    }, 90);
+
+    return () => {
+      cancelled = true;
+      window.clearTimeout(swap);
+    };
+  }, [nextPath, path]);
+
   const first = series[0] ?? 0;
   const last = series[series.length - 1] ?? 0;
   const direction = last > first ? 'higher' : last < first ? 'lower' : 'level';
@@ -57,7 +92,9 @@ export function GlobalDollarChart({ series, range, isLive }: ChartProps) {
         aria-label={summary}
       >
         <path
-          d={toPath(series)}
+          className={styles.chartPath}
+          data-fading={fading || undefined}
+          d={path}
           fill="none"
           stroke="currentColor"
           strokeWidth="2"

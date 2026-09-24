@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ALL_METRICS_VERIFIED, TRUST_METRICS } from '@/content/metrics';
+import { AnimatedValue } from '@/components/ui/AnimatedValue';
 import styles from './TrustMetrics.module.css';
 
 /**
@@ -23,7 +24,7 @@ export function TrustMetrics() {
           <dl className={styles.metrics}>
             {TRUST_METRICS.map((metric) => (
               <div key={metric.label} className={styles.metric}>
-                <dt className={styles.metricValue}>{metric.value}</dt>
+                <AnimatedValue as="dt" className={styles.metricValue} value={metric.value} />
                 <dd className={styles.metricLabel}>{metric.label}</dd>
               </div>
             ))}

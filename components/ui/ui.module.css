@@ -129,14 +129,27 @@
   cursor: pointer;
   transition:
     background-color var(--transition),
-    color var(--transition);
+    color var(--transition),
+    transform var(--transition);
 }
 
 .tab:hover {
   color: var(--text);
 }
 
+.tab:active {
+  transform: translateY(1px);
+}
+
 .tab[data-active='true'] {
   background: var(--black);
   color: #fff;
+}
+
+.tab:disabled,
+.tab[aria-disabled='true'] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none;
 }

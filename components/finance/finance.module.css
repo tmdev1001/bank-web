@@ -10,6 +10,14 @@
   height: clamp(120px, 16vw, 190px);
 }
 
+.chartPath {
+  transition: opacity var(--transition);
+}
+
+.chartPath[data-fading='true'] {
+  opacity: 0;
+}
+
 .chartFigure[data-height='sm'] .chart {
   height: clamp(72px, 9vw, 110px);
 }

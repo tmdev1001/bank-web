@@ -1,3 +1,6 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import styles from './finance.module.css';
 
 const W = 1000;
@@ -19,6 +22,9 @@ function toPath(series: number[]): string {
  * shape. `vector-effect` keeps the stroke 2px at any width, which is what lets
  * the chart be fully fluid without distorting.
  *
+ * Range / series swaps crossfade over --transition (~180ms). Reduced-motion
+ * users get an instant path update.
+ *
  * `comparison` renders in muted grey behind the primary black series.
  */
 export function MarketChart({
@@ -32,6 +38,41 @@ export function MarketChart({
   label: string;
   height?: 'sm' | 'md' | 'lg';
 }) {
+  const nextPath = toPath(series);
+  const nextComparison = comparison ? toPath(comparison) : '';
+  const [path, setPath] = useState(nextPath);
+  const [comparisonPath, setComparisonPath] = useState(nextComparison);
+  const [fading, setFading] = useState(false);
+
+  useEffect(() => {
+    if (nextPath === path && nextComparison === comparisonPath) return undefined;
+
+    let cancelled = false;
+    const reduced =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduced) {
+      setPath(nextPath);
+      setComparisonPath(nextComparison);
+      setFading(false);
+      return undefined;
+    }
+
+    setFading(true);
+    const swap = window.setTimeout(() => {
+      if (cancelled) return;
+      setPath(nextPath);
+      setComparisonPath(nextComparison);
+      setFading(false);
+    }, 90);
+
+    return () => {
+      cancelled = true;
+      window.clearTimeout(swap);
+    };
+  }, [nextPath, nextComparison, path, comparisonPath]);
+
   const first = series[0] ?? 0;
   const last = series[series.length - 1] ?? 0;
   const direction = last > first ? 'higher' : last < first ? 'lower' : 'level';
@@ -40,9 +81,11 @@ export function MarketChart({
   return (
     <figure className={styles.chartFigure} data-height={height}>
       <svg className={styles.chart} viewBox={`0 0 ${W} ${H}`} role="img" aria-label={summary}>
-        {comparison && (
+        {comparisonPath && (
           <path
-            d={toPath(comparison)}
+            className={styles.chartPath}
+            data-fading={fading || undefined}
+            d={comparisonPath}
             fill="none"
             stroke="var(--muted)"
             strokeWidth="1.5"
@@ -52,7 +95,9 @@ export function MarketChart({
           />
         )}
         <path
-          d={toPath(series)}
+          className={styles.chartPath}
+          data-fading={fading || undefined}
+          d={path}
           fill="none"
           stroke="currentColor"
           strokeWidth="2"

@@ -54,7 +54,14 @@ export function MobileMenu({ plus = false }: { plus?: boolean }) {
         <Icon name={open ? 'close' : 'menu'} size={22} />
       </button>
 
-      <div id="bank-menu" ref={panelRef} className={styles.panel} hidden={!open}>
+      <div
+        id="bank-menu"
+        ref={panelRef}
+        className={styles.panel}
+        data-open={open}
+        aria-hidden={!open}
+        inert={!open ? true : undefined}
+      >
         <nav aria-label="Primary">
           <ul className={styles.panelList}>
             {PRIMARY_NAV.map((item) => (

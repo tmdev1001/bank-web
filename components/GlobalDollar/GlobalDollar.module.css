@@ -137,6 +137,14 @@
   color: var(--text);
 }
 
+.chartPath {
+  transition: opacity var(--transition);
+}
+
+.chartPath[data-fading='true'] {
+  opacity: 0;
+}
+
 .ranges {
   display: flex;
   justify-content: flex-end;
@@ -157,16 +165,29 @@
   cursor: pointer;
   transition:
     background-color var(--transition),
-    color var(--transition);
+    color var(--transition),
+    transform var(--transition);
 }
 
 .range:hover {
   color: var(--text);
 }
 
+.range:active {
+  transform: translateY(1px);
+}
+
 .range[data-active='true'] {
   background: var(--black);
   color: #fff;
+}
+
+.range:disabled,
+.range[aria-disabled='true'] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none;
 }
 
 /* --- Tablet -------------------------------------------------------------- */

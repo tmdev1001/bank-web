@@ -86,6 +86,10 @@
   background: #ededed;
 }
 
+.ctaButton:active {
+  transform: translateY(1px);
+}
+
 @media (max-width: 1023px) {
   .layout {
     grid-template-columns: 1fr;
