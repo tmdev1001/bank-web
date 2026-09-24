@@ -39,6 +39,7 @@ export const PRIMARY_NAV: NavItem[] = [
     ],
   },
   { label: 'Company', href: '/company' },
+  { label: 'Pricing', href: '/pricing' },
 ];
 
 export const AUTH_NAV = {

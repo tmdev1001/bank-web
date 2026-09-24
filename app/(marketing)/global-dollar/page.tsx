@@ -56,8 +56,9 @@ export default async function GlobalDollarPage() {
               <br />A more open world.
             </h1>
             <p className={styles.copy}>
-              The Global Dollar gives you a real-time reference for understanding value across
-              currencies and global markets.
+              One global benchmark.
+              <br />
+              More possibilities.
             </p>
             <div className={styles.actions}>
               <Link href="/signup" className="btn btnPrimary">
@@ -70,13 +71,13 @@ export default async function GlobalDollarPage() {
           </div>
 
           <div className={styles.heroVisual}>
-            <HeroMedia
+            {/* <HeroMedia
               src={MEDIA.globalDollar.src}
               alt={MEDIA.globalDollar.alt}
               ratio="1 / 1"
               priority
               sizes="(max-width: 1023px) 100vw, 42vw"
-            />
+            /> */}
           </div>
         </section>
 

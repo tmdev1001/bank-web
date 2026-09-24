@@ -46,12 +46,13 @@ export default function CompanyPage() {
               financial future.
             </h1>
             <p className={styles.copy}>
-              We are building the financial infrastructure for a more connected, equitable, and
-              global economy.
+              People. Technology.
+              <br />
+              Global opportunity.
             </p>
             <div className={styles.actions}>
               <Link href="#story" className="btn btnPrimary">
-                Our Story
+                Our Mission
               </Link>
               <Link href="#careers" className="btn btnSecondary">
                 Careers
@@ -62,13 +63,13 @@ export default function CompanyPage() {
           {/* Architectural imagery rather than generic finance stock, as the
               spec asks for. */}
           <div className={styles.heroVisual}>
-            <HeroMedia
+            {/* <HeroMedia
               src={MEDIA.company.src}
               alt={MEDIA.company.alt}
               ratio="4 / 3"
               priority
               sizes="(max-width: 1023px) 100vw, 42vw"
-            />
+            /> */}
           </div>
         </section>
 

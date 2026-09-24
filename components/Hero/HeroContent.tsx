@@ -13,8 +13,7 @@ export function HeroContent() {
       </h1>
 
       <p className={styles.lede}>
-        Bank is an AI financial system that connects, manages, exchanges, and allocates capital
-        across currencies, accounts, platforms, and markets.
+        A more open financial future awaits.
       </p>
 
       <div className={styles.actions}>

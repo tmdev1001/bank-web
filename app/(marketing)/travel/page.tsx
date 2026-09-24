@@ -11,7 +11,7 @@ import styles from './travel.module.css';
 
 export const metadata: Metadata = {
   title: 'Travel — Bank',
-  description: 'Bank Travel gives you global access, local freedom, and no hidden fees.',
+  description: 'Travel freely. Global access. No borders.',
 };
 
 const DESTINATIONS = [
@@ -45,7 +45,7 @@ export default async function TravelPage() {
               anywhere.
             </>
           }
-          copy="Bank Travel gives you global access, local freedom, and no hidden fees."
+          copy="Travel freely. Global access. No borders."
           primaryCta={{ label: 'Get Started', href: '/signup' }}
           secondaryCta={{ label: 'Learn More', href: '/resources' }}
           capital={capital.data}

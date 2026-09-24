@@ -14,7 +14,7 @@ import { getAccounts, getActivity, getCapital, getGoals, getSpending } from '@/l
 
 export const metadata: Metadata = {
   title: 'Personal — Bank',
-  description: 'Bank Personal helps you manage, grow, and move your money with powerful tools and global access.',
+  description: 'Manage. Grow. Move forward.',
 };
 
 export default async function PersonalPage() {
@@ -33,7 +33,7 @@ export default async function PersonalPage() {
       <main id="main">
         <ProductHero
           headline={<>Your money.<br />Your way.</>}
-          copy="Bank Personal helps you manage, grow, and move your money with powerful tools and global access."
+          copy="Manage. Grow. Move forward."
           primaryCta={{ label: 'Get Started', href: '/signup' }}
           secondaryCta={{ label: 'Learn More', href: '/resources' }}
           capital={capital.data}

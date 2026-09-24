@@ -10,7 +10,7 @@ import styles from './resources.module.css';
 
 export const metadata: Metadata = {
   title: 'Resources — Bank',
-  description: 'Guides, documentation, and support to help you get the most out of Bank.',
+  description: 'Guidance, information, and support to help you understand and act.',
 };
 
 const CATEGORIES = [
@@ -56,7 +56,7 @@ export default function ResourcesPage() {
               forward.
             </h1>
             <p className={styles.copy}>
-              Guides, documentation, and support to help you get the most out of Bank.
+              Guidance, information, and support to help you understand and act.
             </p>
           </div>
           <div className={styles.heroVisual}>

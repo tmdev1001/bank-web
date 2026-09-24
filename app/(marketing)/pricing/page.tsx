@@ -7,7 +7,7 @@ import styles from './pricing.module.css';
 
 export const metadata: Metadata = {
   title: 'Pricing — Bank',
-  description: 'Simple pricing for a global life. Choose the right plan for your goals.',
+  description: 'Simple pricing for a global life. Choose the right plan for you.',
 };
 
 export default function PricingPage() {
@@ -24,7 +24,7 @@ export default function PricingPage() {
             <br />
             for a global life.
           </h1>
-          <p className={styles.copy}>Choose the right plan for your goals.</p>
+          <p className={styles.copy}>Choose the right plan for you.</p>
         </section>
 
         <section className={`container ${styles.plansSection}`} aria-label="Plans">
@@ -38,7 +38,7 @@ export default function PricingPage() {
 
         <section className={`container ${styles.faqSection}`} aria-labelledby="faq-heading">
           <h2 id="faq-heading" className={styles.faqHeading}>
-            Frequently asked questions
+            Supporting FAQs:
           </h2>
           {/* Native disclosure: keyboard accessible and announces its expanded
               state without JavaScript. Safe here because, unlike the footer

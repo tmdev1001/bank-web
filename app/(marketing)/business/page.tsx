@@ -47,7 +47,7 @@ export default async function BusinessPage() {
               what&rsquo;s next.
             </>
           }
-          copy="Bank Business gives you the financial infrastructure to operate, scale, and move capital globally."
+          copy="Operate. Scale. Go further."
           primaryCta={{ label: 'Get Started', href: '/signup' }}
           secondaryCta={{ label: 'Talk to Sales', href: '/company' }}
           capital={capital.data}

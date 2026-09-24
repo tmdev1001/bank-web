@@ -15,7 +15,7 @@ import styles from './invest.module.css';
 
 export const metadata: Metadata = {
   title: 'Invest — Bank',
-  description: 'Portfolio, markets, positions and performance, with Alpha built in.',
+  description: 'Autonomous intelligence. Real opportunities.',
 };
 
 /**
@@ -41,10 +41,12 @@ export default async function InvestPage() {
               Smarter
               <br />
               investing.
+              <br />
+              With Alpha.
             </>
           }
-          copy="Portfolio, markets, positions and performance in one place — with Alpha, Bank's autonomous portfolio intelligence, built in."
-          primaryCta={{ label: 'Open Alpha', href: '/invest/alpha' }}
+          copy="Autonomous intelligence. Real opportunities."
+          primaryCta={{ label: 'Get Started', href: '/invest/alpha' }}
           secondaryCta={{ label: 'Learn More', href: '/resources' }}
           capital={capital.data}
           media={MEDIA.invest}

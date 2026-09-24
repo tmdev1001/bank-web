@@ -56,7 +56,7 @@ export function ProductHero({
         </div>
       </div>
       <div className={styles.heroVisual} data-media={Boolean(media)}>
-        {media && (
+        {/* {media && (
           <HeroMedia
             src={media.src}
             alt={media.alt}
@@ -65,7 +65,7 @@ export function ProductHero({
             sizes="(max-width: 767px) 100vw, 30vw"
             className={styles.heroPhoto}
           />
-        )}
+        )} */}
         <ProductPhone capital={capital} label={phoneLabel} seed={seed} />
       </div>
     </section>

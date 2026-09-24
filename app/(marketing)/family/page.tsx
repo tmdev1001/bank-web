@@ -13,7 +13,7 @@ import styles from './family.module.css';
 export const metadata: Metadata = {
   title: 'Family — Bank',
   description:
-    'Bank Family helps you plan, save, and build generational wealth with the people who matter most.',
+    'Save. Plan. Build. For what matters.',
 };
 
 const MEMBERS = [
@@ -49,7 +49,7 @@ export default async function FamilyPage() {
               future together.
             </>
           }
-          copy="Bank Family helps you plan, save, and build generational wealth with the people who matter most."
+          copy="Save. Plan. Build. For what matters."
           primaryCta={{ label: 'Get Started', href: '/signup' }}
           secondaryCta={{ label: 'Learn More', href: '/resources' }}
           capital={capital.data}
