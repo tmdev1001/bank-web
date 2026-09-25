@@ -37,7 +37,8 @@ export default function VenturesPage() {
       </a>
       <Header />
       <main id="main">
-        <section className={`container ${styles.hero}`} aria-labelledby="ventures-heading">
+        <section className={styles.heroShell} aria-labelledby="ventures-heading">
+          <div className={`container ${styles.hero}`}>
           <div className={styles.heroContent}>
             <p className="eyebrow">Bank Ventures</p>
             <h1 id="ventures-heading" className={styles.headline}>
@@ -53,7 +54,7 @@ export default function VenturesPage() {
               <Link href="#thesis" className="btn btnPrimary">
                 Explore Ventures
               </Link>
-              <Link href="#pitch" className="btn btnSecondary">
+              <Link href="#pitch" className={`btn btnSecondary ${styles.secondaryBtn}`}>
                 Pitch Bank
               </Link>
             </div>
@@ -62,13 +63,14 @@ export default function VenturesPage() {
           {/* Monumental architecture rather than the consumer photography used
               on Personal and Family, as the brief asks. */}
           <div className={styles.heroVisual}>
-            <HeroMedia
+            {/* <HeroMedia
               src={MEDIA.ventures.src}
               alt={MEDIA.ventures.alt}
               ratio="4 / 3"
               priority
               sizes="(max-width: 1023px) 100vw, 42vw"
-            />
+            /> */}
+          </div>
           </div>
         </section>
 
