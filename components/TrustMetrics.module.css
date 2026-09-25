@@ -65,8 +65,9 @@
   justify-content: space-between;
   gap: 16px;
   padding: clamp(20px, 2.4vw, 30px);
-  background: var(--black);
-  color: #fff;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
 }
 

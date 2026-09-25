@@ -178,8 +178,8 @@
 }
 
 .range[data-active='true'] {
-  background: var(--black);
-  color: #fff;
+  background: var(--text);
+  color: var(--bg);
 }
 
 .range:disabled,

@@ -1,7 +1,7 @@
 .section {
   padding-block: clamp(44px, 5.5vw, 84px);
-  background: var(--black);
-  color: #fff;
+  background: var(--surface);
+  color: var(--text);
 }
 
 .heading {

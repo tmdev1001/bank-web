@@ -57,8 +57,8 @@
 .appBadge {
   padding: 0.1em 0.4em;
   border-radius: 3px;
-  background: var(--black);
-  color: #fff;
+  background: var(--text);
+  color: var(--bg);
   font-size: 0.7em;
   font-weight: 700;
   letter-spacing: 0.08em;

@@ -22,7 +22,7 @@
 .heroShell .actions .secondaryBtn {
   background: #ffffff;
   border-color: #ffffff;
-  color: var(--text);
+  color: var(--bg);
 }
 
 .heroShell .actions .secondaryBtn:hover:not(:disabled):not([aria-disabled="true"]) {
@@ -157,8 +157,9 @@
   align-items: flex-end;
   min-height: clamp(180px, 22vw, 260px);
   padding: clamp(18px, 2.4vw, 30px);
-  background: var(--black);
-  color: #fff;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
 }
 

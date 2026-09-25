@@ -5,7 +5,7 @@
      min-width:auto, so a nowrap table inside one (the currency ticker) would
      widen its track and push the page sideways. */
   min-width: 0;
-  background: var(--bg);
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 24px;
@@ -103,9 +103,9 @@
 }
 
 .badge[data-tone='dark'] {
-  background: var(--black);
-  border-color: var(--black);
-  color: #fff;
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--bg);
 }
 
 /* --- Tabs ---------------------------------------------------------------- */
@@ -142,8 +142,8 @@
 }
 
 .tab[data-active='true'] {
-  background: var(--black);
-  color: #fff;
+  background: var(--text);
+  color: var(--bg);
 }
 
 .tab:disabled,

@@ -1,6 +1,7 @@
 .footer {
-  background: var(--black);
-  color: #fff;
+  background: var(--bg);
+  color: var(--text);
+  border-top: 1px solid var(--border);
 }
 
 .inner {

@@ -19,13 +19,13 @@
    * On the homepage spec `--surface` meant the background; that page has been
    * migrated rather than left on a private theme.
    */
-  --bg: #ffffff;
-  --surface: #f7f7f7;
-  --surface-2: #f2f2f2;
+  --bg: #000000;
+  --surface: #111111;
+  --surface-2: #1a1a1a;
   --black: #000000;
-  --text: #0a0a0a;
-  --muted: #666666;
-  --border: #e2e2e2;
+  --text: #ffffff;
+  --muted: #a8a8a8;
+  --border: #333333;
   --positive: #148a43;
   --negative: #c43b32;
   --radius-sm: 6px;
@@ -54,7 +54,7 @@
   /* Retained aliases so existing modules keep compiling during migration. */
   --page-max: var(--max-width);
   --secondary: var(--muted);
-  --white: var(--bg);
+  --white: #ffffff;
   --radius: var(--radius-md);
   --font-section: var(--font-h2);
   --font-card: var(--font-h3);
@@ -80,6 +80,7 @@
 html {
   /* The spec forbids requiring browser zoom; never disable user scaling. */
   -webkit-text-size-adjust: 100%;
+  color-scheme: dark;
 }
 
 body {
@@ -222,13 +223,14 @@ a.wordmark {
 }
 
 .btnPrimary {
-  background: var(--black);
-  color: #fff;
-  border-color: var(--black);
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
 }
 
 .btnPrimary:hover:not(:disabled):not([aria-disabled="true"]) {
-  background: #1c1c1c;
+  background: #e8e8e8;
+  border-color: #e8e8e8;
 }
 
 .btnPrimary:active:not(:disabled):not([aria-disabled="true"]) {
@@ -284,7 +286,7 @@ a.wordmark {
  */
 
 :where(a, button, input, select, [tabindex]):focus-visible {
-  outline: 2px solid var(--black);
+  outline: 2px solid var(--text);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -334,8 +336,8 @@ a.wordmark {
   left: 16px;
   z-index: 100;
   padding: 12px 18px;
-  background: var(--black);
-  color: #fff;
+  background: var(--text);
+  color: var(--bg);
   border-radius: var(--radius-sm);
   transition: top var(--transition);
 }

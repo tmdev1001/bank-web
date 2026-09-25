@@ -157,9 +157,9 @@
 }
 
 .decisionAction[data-action='BUY'] {
-  background: var(--black);
-  border-color: var(--black);
-  color: #fff;
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--bg);
 }
 
 .decisionAction[data-action='SELL'] {

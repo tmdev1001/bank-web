@@ -172,11 +172,11 @@
 }
 
 .progress::-webkit-progress-value {
-  background: var(--black);
+  background: var(--text);
 }
 
 .progress::-moz-progress-bar {
-  background: var(--black);
+  background: var(--text);
 }
 
 /* --- Ticker --------------------------------------------------------------- */

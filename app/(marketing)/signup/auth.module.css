@@ -8,7 +8,7 @@
   width: 100%;
   max-width: 420px;
   padding: clamp(22px, 3vw, 34px);
-  background: var(--bg);
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
 }
@@ -68,7 +68,7 @@
   padding: 0 12px;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  background: var(--bg);
+  background: var(--surface);
   font: inherit;
   font-size: 15px;
   color: var(--text);
@@ -76,7 +76,7 @@
 }
 
 .input:focus {
-  outline: 2px solid var(--black);
+  outline: 2px solid var(--text);
   outline-offset: 2px;
   border-color: var(--text);
 }

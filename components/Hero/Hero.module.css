@@ -47,7 +47,7 @@
 .actions .exploreBtn {
   background: #ffffff;
   border-color: #ffffff;
-  color: var(--text);
+  color: var(--bg);
 }
 
 .actions .exploreBtn:hover:not(:disabled):not([aria-disabled="true"]) {

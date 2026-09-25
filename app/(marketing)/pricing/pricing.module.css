@@ -63,7 +63,7 @@
   display: flex;
   flex-direction: column;
   padding: clamp(20px, 2.2vw, 28px);
-  background: var(--bg);
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
 }
@@ -71,7 +71,7 @@
 /* The featured plan is marked by a heavier border AND a "Most popular" badge —
    never by colour alone. */
 .plan[data-featured='true'] {
-  border-color: var(--black);
+  border-color: var(--text);
   border-width: 2px;
 }
 

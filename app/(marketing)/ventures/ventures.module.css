@@ -132,8 +132,9 @@
   align-items: flex-end;
   min-height: clamp(180px, 22vw, 260px);
   padding: clamp(18px, 2.4vw, 30px);
-  background: var(--black);
-  color: #fff;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
 }
 
@@ -369,7 +370,7 @@
 }
 
 .input:focus {
-  outline: 2px solid var(--black);
+  outline: 2px solid var(--text);
   outline-offset: 2px;
   border-color: var(--text);
 }
@@ -398,7 +399,7 @@
 }
 
 .file:focus {
-  outline: 2px solid var(--black);
+  outline: 2px solid var(--text);
   outline-offset: 2px;
 }
 
@@ -420,8 +421,9 @@
 
 .closing {
   padding: clamp(28px, 4vw, 56px);
-  background: var(--black);
-  color: #fff;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
 }
 
